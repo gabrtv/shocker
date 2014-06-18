@@ -27,6 +27,8 @@ Simple table outlining vulnerability to **this particular** exploit.  PRs welcom
 | 0.11.0         | Ubuntu 12.04 LTS  | Yes         |
 | 0.11.1         | Ubuntu 12.04 LTS  | Yes         |
 | 0.12.0         | Ubuntu 12.04 LTS  | No          |
+| 1.0            | Boot2Docker       | No          |
+| 1.0            | CoreOS v343.0.0+  | No          |
 | 1.0            | Ubuntu 12.04 LTS  | No          |
 
 ## Examples
