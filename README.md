@@ -17,6 +17,18 @@ To modify source and rebuild, use:
 
     docker build -t gabrtv/shocker .
 
+## Vulnerability Matrix
+
+Simple table outlining vulnerability to **this particular** exploit.  PRs welcome!
+
+| Docker Version | Docker Host OS    | Vulnerable? |
+| -------------- | ----------------- | ----------- |
+| 0.10.0         | Ubuntu 12.04 LTS  | Yes         |
+| 0.11.0         | Ubuntu 12.04 LTS  | Yes         |
+| 0.11.1         | Ubuntu 12.04 LTS  | Yes         |
+| 0.12.0         | Ubuntu 12.04 LTS  | No          |
+| 1.0            | Ubuntu 12.04 LTS  | No          |
+
 ## Examples
 
 Confirmed vulnerable: Docker 0.11.1 running Ubuntu 12.04 LTS
