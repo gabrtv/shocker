@@ -23,6 +23,7 @@ Simple table outlining vulnerability to **this particular** exploit.  PRs welcom
 
 | Docker Version | Docker Host OS    | Vulnerable? |
 | -------------- | ----------------- | ----------- |
+| 0.8.1          | Ubuntu 12.04 LTS  | Yes         |
 | 0.10.0         | Ubuntu 12.04 LTS  | Yes         |
 | 0.11.0         | Ubuntu 12.04 LTS  | Yes         |
 | 0.11.1         | Ubuntu 12.04 LTS  | Yes         |
